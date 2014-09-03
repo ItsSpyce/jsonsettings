@@ -1,4 +1,4 @@
-﻿<h1>JsonSettings</h1>
+<h1>JsonSettings</h1>
 Simple to use and flexible as ever, JsonSettings is a continuation of SimpleSettings.
 
 <h2>Creating a settings file for your project</h2>
