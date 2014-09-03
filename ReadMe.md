@@ -2,7 +2,11 @@
 Simple to use and flexible as ever, JsonSettings is a continuation of SimpleSettings.
 
 <h2>Creating a settings file for your project</h2>
-Just reference the JsonSettings library and use
+Using Nuget, 
+
+<code>PM> Install-Package JsonSettings</code>
+
+then create a new Settings object.
 
 <code>Settings = new Settings("C:\{USER}\location\of\file");</code>
 
