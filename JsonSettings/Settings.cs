@@ -22,8 +22,17 @@ namespace JsonSettings
         public Settings(string location)
         {
             SettingsFile = location;
-            _settings = new JObject(SettingsObject);
-            Initialize();
+            try
+            {
+                _settings = new JObject(SettingsObject);
+            }
+            catch
+            {
+                var jo = new JObject();
+                jo["settings"] = new JObject();
+                File.WriteAllText(SettingsFile, jo.ToString());
+                _settings = new JObject();
+            }
         }
 
         public string this[string key]
@@ -38,17 +47,6 @@ namespace JsonSettings
             {
                 ChangeSetting(key, value);
             }
-        }
-
-        /// <summary>
-        /// Creates the .JSON file if it doesn't exist already.
-        /// </summary>
-        private static void Initialize()
-        {
-            if (File.Exists(SettingsFile)) return;
-            var jo = new JObject();
-            jo["settings"] = new JObject();
-            File.WriteAllText(SettingsFile, jo.ToString());
         }
 
         /// <summary>
